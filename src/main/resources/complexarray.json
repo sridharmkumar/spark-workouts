@@ -18,7 +18,11 @@
         "address": {
           "temporary_address": "Trichy",
           "permanent_address": "Chennai"
-        }
+        },
+        "components": [
+          "book",
+          "paper"
+        ]
       }
     },
     {
@@ -32,7 +36,11 @@
         "address": {
           "temporary_address": "Trichy",
           "permanent_address": "Chennai"
-        }
+        },
+        "components": [
+          "book",
+          "paper"
+        ]
       }
     }
   ]
