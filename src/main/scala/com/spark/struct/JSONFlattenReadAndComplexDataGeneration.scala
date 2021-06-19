@@ -1,16 +1,15 @@
-package com.spark.d0613
+package com.spark.struct
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, struct}
+import org.apache.spark.{SparkConf, SparkContext}
 
-object ComplexJSON {
+object JSONFlattenReadAndComplexDataGeneration {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("spark_integration").setMaster("local[*]")
     val sc = new SparkContext(conf)
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
-    import spark.implicits._
 
     println("***** Raw Data *****")
     val jsonData = spark.read.format("json").option("", "").load("file:///C://data//picture.json")

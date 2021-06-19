@@ -1,13 +1,11 @@
-package com.spark.d0613
+package com.spark.struct
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, from_json, struct, to_json}
-import org.apache.spark.sql.types.StringType
-import org.apache.spark.sql.types.StructField
-import org.apache.spark.sql.types.StructType
+import org.apache.spark.sql.types.{StringType, StructField, StructType}
+import org.apache.spark.{SparkConf, SparkContext}
 
-object FromAndToJSON {
+object ParseFromAndToJSON {
 
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("spark_integration").setMaster("local[*]")
@@ -26,8 +24,8 @@ object FromAndToJSON {
       StructField("timestamp", StringType, nullable = true),
       StructField("zipcode", StringType, nullable = true)))
 
-    val rawData = spark.read.format("csv").option("delimiter","~").load("file:///c://data//devices.json")
-    val jsonData = rawData.withColumn("json", from_json(col("_c0"),weblogschema)).select("json.*")
+    val rawData = spark.read.format("csv").option("delimiter", "~").load("file:///c://data//devices.json")
+    val jsonData = rawData.withColumn("json", from_json(col("_c0"), weblogschema)).select("json.*")
     println("***** from_json *****")
     jsonData.show(5, truncate = false)
     jsonData.printSchema()

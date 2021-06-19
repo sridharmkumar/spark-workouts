@@ -1,0 +1,9 @@
+{
+	"first_name": "zeyobron",
+	"second_name": "analytics",
+	"address": {
+		"temporary_address": "Chennai",
+		"permanent_address": "Hyderabad"
+	},
+	"students":["alok","ajay","Harini"]
+}

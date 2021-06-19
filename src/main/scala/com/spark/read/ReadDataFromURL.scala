@@ -1,9 +1,9 @@
-package com.spark.d0613
+package com.spark.read
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}
 
-object RequestDataFromURL  {
+object ReadDataFromURL {
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setAppName("spark_integration").setMaster("local[*]")
@@ -12,6 +12,9 @@ object RequestDataFromURL  {
     val spark = SparkSession.builder().getOrCreate()
 
     val url = "https://randomuser.me/api/0.8/?results=10"
+
+    println()
+    println("*************************************************")
     println("Retrieving data from url - " + url)
     val result = scala.io.Source.fromURL(url).mkString
     println("Data retrieval successfully completed.")

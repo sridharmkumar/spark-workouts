@@ -1,4 +1,4 @@
-package com.spark.d0613
+package com.spark.struct
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, struct}
@@ -13,27 +13,27 @@ object RequestResponseParser {
     val spark = SparkSession.builder().getOrCreate()
 
 
-    val jsonData = spark.read.format("json").option("multiline","true").load("file:///c://data//reqapi.json")
+    val jsonData = spark.read.format("json").option("multiline", "true").load("file:///c://data//reqapi.json")
     println()
     println("****** Raw Data ******")
-    jsonData.show(5, false)
+    jsonData.show(5, truncate = false)
     jsonData.printSchema()
 
     val flattenData = jsonData.select(col("data.avatar"),
-    col("data.email"),
-    col("data.first_name"),
-    col("data.id"),
-    col("data.last_name"),
-    col("page"),
-    col("per_page"),
-    col("support.text"),
-    col("support.url"),
-    col("total"),
-    col("total_pages"))
+      col("data.email"),
+      col("data.first_name"),
+      col("data.id"),
+      col("data.last_name"),
+      col("page"),
+      col("per_page"),
+      col("support.text"),
+      col("support.url"),
+      col("total"),
+      col("total_pages"))
 
     println()
     println("****** Flatten Data ******")
-    flattenData.show(5, false)
+    flattenData.show(5, truncate = false)
     flattenData.printSchema()
 
     val publishData = flattenData.select(
@@ -45,14 +45,14 @@ object RequestResponseParser {
         col("last_name")).alias("data"),
       col("page"),
       col("per_page"),
-    struct(
-      col("text"),
-      col("url")).alias("support"),
-    col("total"),
-    col("total_pages"))
+      struct(
+        col("text"),
+        col("url")).alias("support"),
+      col("total"),
+      col("total_pages"))
     println()
     println("****** Publish Data ******")
-    publishData.show(5, false)
+    publishData.show(5, truncate = false)
     publishData.printSchema()
   }
 
