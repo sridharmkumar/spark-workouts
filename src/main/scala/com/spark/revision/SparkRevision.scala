@@ -24,8 +24,8 @@ object SparkRevision {
 
     println
     println("*** Revision Case #2 - Start ***")
-    val strList = List("zeyobron", "zeyo", "analytics")
-    strList.filter(x => x.contains("zeyo")).foreach(println)
+    val strList = List("Aathavan", "Aaruuran", "Abayan")
+    strList.filter(x => x.contains("Aa")).foreach(println)
     println("*** Revision Case #2 - Complete ***")
 
     println

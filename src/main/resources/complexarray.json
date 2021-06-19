@@ -1,0 +1,39 @@
+{
+  "title": "Mr",
+  "first_name": "Aathavan",
+  "last_name": "Aaruuran",
+  "address": {
+    "temporary_address": "Chennai",
+    "permanent_address": "Trichy"
+  },
+  "students": [
+    {
+      "user": {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first_name": "Abayan",
+          "last_name": "Adiyaman"
+        },
+        "address": {
+          "temporary_address": "Trichy",
+          "permanent_address": "Chennai"
+        }
+      }
+    },
+    {
+      "user": {
+        "gender": "male",
+        "name": {
+          "title": "Mr",
+          "first_name": "Agilan",
+          "last_name": "Abayan"
+        },
+        "address": {
+          "temporary_address": "Trichy",
+          "permanent_address": "Chennai"
+        }
+      }
+    }
+  ]
+}
