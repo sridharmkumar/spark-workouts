@@ -1,0 +1,4 @@
+id,name,amount,place
+1,Aathavan,40,Chennai
+2,,70,Bengaluru
+,Adiyaman,,
