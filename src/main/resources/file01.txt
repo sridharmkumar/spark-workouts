@@ -1,0 +1,5 @@
+id,name,amount
+1,Aathavan,40
+2,22,70
+3,Adiyaman,50
+4,Aaruuran,50

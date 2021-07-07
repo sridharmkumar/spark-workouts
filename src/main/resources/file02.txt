@@ -1,0 +1,3 @@
+id,name,amount
+2,22,70
+4,vishnu,40
