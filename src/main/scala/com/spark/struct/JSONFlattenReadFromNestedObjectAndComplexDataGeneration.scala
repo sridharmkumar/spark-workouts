@@ -1,8 +1,8 @@
 package com.spark.struct
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, struct}
+import org.apache.spark.{SparkConf, SparkContext}
 
 object JSONFlattenReadFromNestedObjectAndComplexDataGeneration {
   def main(args: Array[String]): Unit = {

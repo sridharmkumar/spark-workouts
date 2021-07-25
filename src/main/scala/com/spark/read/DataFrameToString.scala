@@ -1,7 +1,7 @@
 package com.spark.read
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.{SparkConf, SparkContext}
 
 object DataFrameToString {
   def main(args: Array[String]): Unit = {
@@ -10,7 +10,6 @@ object DataFrameToString {
     val sc = new SparkContext(conf)
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
-    import spark.implicits._
 
     val data = spark.read.format("csv").option("header","true").load("src/main/resources/txns")
     data.createOrReplaceTempView("txns")

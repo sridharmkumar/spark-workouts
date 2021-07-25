@@ -1,7 +1,7 @@
 package com.spark.array
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{col, collect_list, explode, struct}
+import org.apache.spark.sql.functions.{col, explode}
 import org.apache.spark.{SparkConf, SparkContext}
 
 object JSONComplexDataFlattenArray {

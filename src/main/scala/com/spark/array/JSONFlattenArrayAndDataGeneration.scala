@@ -1,8 +1,8 @@
 package com.spark.array
 
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.{SparkSession, functions}
 import org.apache.spark.sql.functions.{col, collect_list, struct}
+import org.apache.spark.sql.{SparkSession, functions}
+import org.apache.spark.{SparkConf, SparkContext}
 
 object JSONFlattenArrayAndDataGeneration {
   def main(args: Array[String]): Unit = {

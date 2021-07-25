@@ -1,8 +1,8 @@
 package com.spark.array
 
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, explode}
+import org.apache.spark.{SparkConf, SparkContext}
 
 object JSONFlattenAndComplexDataGenerationFromURL {
   def main(args: Array[String]): Unit = {
