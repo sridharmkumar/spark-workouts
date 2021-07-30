@@ -10,7 +10,7 @@ object DynamicCatalogGeneration {
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
 
-    val columnDataFrame = spark.read.format("csv").option("header", "true").load("src/main/resources/columns.txt")
+    val columnDataFrame = spark.read.format("csv").option("header", "true").load("src/main/resources/columns.csv")
     val listData = columnDataFrame.rdd.collect
 
     val prefix =
