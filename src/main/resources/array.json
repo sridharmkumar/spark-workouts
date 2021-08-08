@@ -1,9 +1,13 @@
 {
-	"first_name": "Aathavan",
-	"last_name": "Aaruuran",
-	"address": {
-		"temporary_address": "Chennai",
-		"permanent_address": "Trichy"
-	},
-	"students":["Abayan","Adiyaman","Agilan"]
+  "first_name": "Aathavan",
+  "last_name": "Aaruuran",
+  "address": {
+    "temporary_address": "Chennai",
+    "permanent_address": "Trichy"
+  },
+  "students": [
+    "Abayan",
+    "Adiyaman",
+    "Agilan"
+  ]
 }

@@ -1,7 +1,7 @@
 package com.spark.read
 
 import org.apache.spark.sql.types._
-import org.apache.spark.sql.{DataFrame, SparkSession, _}
+import org.apache.spark.sql._
 import org.apache.spark.{SparkConf, SparkContext}
 
 object DataFrameZipWithIndex {
@@ -12,12 +12,12 @@ object DataFrameZipWithIndex {
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
 
-    val df = spark.read.format("csv").option("header","true").load("src/main/resources/txns")
+    val df = spark.read.format("csv").option("header", "true").load("src/main/resources/txns")
     val result = addColumnIndex(spark, df)
     result.show()
   }
 
-  def addColumnIndex(spark: SparkSession,df: DataFrame) = {
+  def addColumnIndex(spark: SparkSession, df: DataFrame) = {
     spark.sqlContext.createDataFrame(
       df.rdd.zipWithIndex.map {
         case (row, index) => Row.fromSeq(row.toSeq :+ index)

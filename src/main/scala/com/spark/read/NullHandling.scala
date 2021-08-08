@@ -12,7 +12,7 @@ object NullHandling {
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
 
-    val data = spark.read.format("csv").option("header","true").option("inferSchema","true").load("src/main/resources/nulldata.txt")
+    val data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("src/main/resources/nulldata.txt")
     data.printSchema()
 
     data.na.fill("NA").na.fill(0).withColumn("current_date", current_date()).show(false)

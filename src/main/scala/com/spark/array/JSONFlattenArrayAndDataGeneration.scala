@@ -11,7 +11,7 @@ object JSONFlattenArrayAndDataGeneration {
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
 
-    val rawData = spark.read.format("json").option("multiline","true").load("src/main/resources/array.json")
+    val rawData = spark.read.format("json").option("multiline", "true").load("src/main/resources/array.json")
     println("****** Raw Data ******")
     rawData.printSchema()
     rawData.show(5, truncate = false)
@@ -35,15 +35,15 @@ object JSONFlattenArrayAndDataGeneration {
       col("permanent_address")
     ).agg(collect_list(col("students")).alias("students"))
 
-    val complexData =  aggregateData.select(
-        col("first_name"),
-        col("last_name"),
-        struct(
-          col("temporary_address").alias("temporary_address"),
-          col("permanent_address").alias("permanent_address")
-        ).alias("address"),
+    val complexData = aggregateData.select(
+      col("first_name"),
+      col("last_name"),
+      struct(
+        col("temporary_address").alias("temporary_address"),
+        col("permanent_address").alias("permanent_address")
+      ).alias("address"),
       col("students")
-      )
+    )
     println
     println("****** Complex Data ******")
     complexData.printSchema()

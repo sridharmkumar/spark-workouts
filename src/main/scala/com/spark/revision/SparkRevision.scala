@@ -7,8 +7,6 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkRevision {
 
-  case class Txns(txnno: String, txndate: String, custno: String, amount: String, category: String, product: String, city: String, State: String, spendby: String)
-
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setAppName("spark_integration").setMaster("local[*]")
@@ -111,4 +109,6 @@ object SparkRevision {
     println("Final data written successfully")
     println("*** Revision Case #12 - Complete ***")
   }
+
+  case class Txns(txnno: String, txndate: String, custno: String, amount: String, category: String, product: String, city: String, State: String, spendby: String)
 }

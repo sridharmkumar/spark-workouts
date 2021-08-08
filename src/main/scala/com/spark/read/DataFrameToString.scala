@@ -11,11 +11,11 @@ object DataFrameToString {
     sc.setLogLevel("Error")
     val spark = SparkSession.builder().getOrCreate()
 
-    val data = spark.read.format("csv").option("header","true").load("src/main/resources/txns")
+    val data = spark.read.format("csv").option("header", "true").load("src/main/resources/txns")
     data.createOrReplaceTempView("txns")
     val maxDataFrame = spark.sql("select max(txnno) from txns")
     maxDataFrame.show(false)
-    val maxValue = maxDataFrame.collect().map(x=>x.mkString("")).mkString("").toInt
+    val maxValue = maxDataFrame.collect().map(x => x.mkString("")).mkString("").toInt
     println("Max Value is " + maxValue)
   }
 }

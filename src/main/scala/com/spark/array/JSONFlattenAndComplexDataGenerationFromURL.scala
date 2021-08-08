@@ -24,8 +24,8 @@ object JSONFlattenAndComplexDataGenerationFromURL {
     jsonDataFrame.show(5, truncate = false)
     jsonDataFrame.printSchema()
 
-    val explodeData=jsonDataFrame.withColumn("results", explode(col("results")))
-    val flattenData=explodeData.select(
+    val explodeData = jsonDataFrame.withColumn("results", explode(col("results")))
+    val flattenData = explodeData.select(
       col("nationality"),
       //col("results.user.BSN"),
       col("results.user.cell"),
@@ -54,6 +54,6 @@ object JSONFlattenAndComplexDataGenerationFromURL {
       col("version")
     )
     flattenData.printSchema();
-    println("flatten data count : "+flattenData.count())
+    println("flatten data count : " + flattenData.count())
   }
 }

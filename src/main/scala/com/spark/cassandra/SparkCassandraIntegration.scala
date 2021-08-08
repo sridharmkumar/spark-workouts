@@ -11,13 +11,13 @@ object SparkCassandraIntegration {
     sc.setLogLevel("ERROR")
 
     val spark = SparkSession.builder()
-      .config("spark.cassandra.connection.host","localhost")
-      .config("spark.cassandra.connection.port","9042")
+      .config("spark.cassandra.connection.host", "localhost")
+      .config("spark.cassandra.connection.port", "9042")
       .getOrCreate()
 
     val empData = spark.read.format("org.apache.spark.sql.cassandra")
       .options(Map("keyspace" -> "mykeyspace",
-                   "table" ->"emp")).load()
+        "table" -> "emp")).load()
     empData.show()
   }
 }
