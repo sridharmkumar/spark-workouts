@@ -3,7 +3,7 @@ package com.spark.streaming
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.{SparkConf, SparkContext}
 
-object SparkTextFileStreaming {
+object TextFileStreaming {
 
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("spark_integration").setMaster("local[*]").set("spark.driver.allowMultipleContexts", "true")
